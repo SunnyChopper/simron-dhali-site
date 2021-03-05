@@ -1,0 +1,331 @@
+#site-navbar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    background-color: #244C41 !important;
+
+    box-shadow: 0px 2px 16px -2px rgba(20, 20, 20, 0.15);
+}
+
+#site-header > div > a {
+    color: white;
+}
+
+#site-logo-text {
+    font-family: 'Zilla Slab';
+    font-weight: 800;
+    font-size: 28px;
+    color: white;
+    transition: 0.15s all;
+}
+
+#site-logo-text:hover {
+    color: #d0d0d0;
+    transform: translateY(-2px);
+    text-shadow: 0px 2px 4px rgba(20, 20, 20, 0.15);
+}
+
+#site-logo-text:active {
+    transform: translateY(1px);
+    text-shadow: 0px 1px 1px rgba(5, 5, 5, 0.6);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    transition: 0.15s all;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #d0d0d0;
+}
+
+#nav-links > li > a {
+    font-family: 'Oxygen';
+    font-weight: 700;
+    font-size: 14px;
+    color: #d0d0d0;
+
+    transition: 0.15s all;
+}
+
+#nav-links > li > a:hover {
+    color: white;
+}
+
+#site-hero {
+    background-color: #f0f0f0;
+    height: 90vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#site-hero-header {
+    color: #244C41;
+
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 53px;
+}
+
+#site-hero-buttons-container {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.primary-button {
+    border: 3px solid #244C41;
+    background-color: #244C41;
+    padding: 6px 18px;
+    border-radius: 5px;
+    color: white;
+    
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+    font-size: 20px;
+
+    transition: 0.15s all;
+}
+
+.primary-button:hover {
+    border: 3px solid #244C41;
+    background-color: white;
+    text-decoration: none;
+    color: #244C41;
+}
+
+.secondary-button {
+    border: 3px solid #2C386B;
+    background-color: #2C386B;
+    padding: 6px 18px;
+    border-radius: 5px;
+    color: white;
+
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+    font-size: 20px;
+
+    transition: 0.15s all;
+}
+
+.secondary-button:hover {
+    border: 3px solid #2C386B;
+    background-color: white;
+    text-decoration: none;
+    color: #2C386B;
+}
+
+.green-row {
+    background: #244C41;
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.gray-row {
+    background: #F0F0F0;
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.secondary-row {
+    background: #A9AD93;
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.header {
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+}
+
+.subheader {
+    font-family: 'Oxygen';
+    font-weight: 500;
+}
+
+.circle-image {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+}
+
+.white-header {
+    font-family: 'Zilla Slab';
+    color: white;
+    font-weight: 700;
+}
+
+.white-subheader {
+    font-family: 'Oxygen';
+    font-weight: 500;
+    color: white;
+}
+
+.experience-card {
+    border-radius: 16px;
+    background-color: #fafafa;
+    padding: 24px;
+    box-shadow: 0px 2px 8px -2px rgba(20, 20, 20, 0.15);
+}
+
+.experience-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.experience-card-body {
+    margin-top: 24px;
+}
+
+.experience-card-logo {
+    width: 96px;
+    height: 96px;
+    background-color: #244C41;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 48px;
+}
+
+.experience-card-text {
+    margin-bottom: 0px;
+    font-family: 'Oxygen';
+    color: #112D32;
+}
+
+.side-image-card {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0px 4px 8px -4px rgba(10, 10, 10, 0.15);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.side-image {
+    flex: 1;
+}
+
+.side-image > img {
+    width: 100%;
+    height: 100%;
+}
+
+.side-image-body {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+}
+
+.side-image-body > h3 {
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+}
+
+.side-image-body > p {
+    font-family: 'Oxygen';
+    font-size: 14px;
+}
+
+#contact-card {
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px -2px rgba(36, 76, 65, 0.35);
+    padding: 48px 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-header {
+    text-align: center;
+    font-family: 'Zilla Slab';
+    font-weight: 700;
+    color: #244C41;
+}
+
+#contact-subheader {
+    font-family: 'Oxygen';
+    color: #112D32;
+    text-align: center;
+}
+
+#contact-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact-buttons > a {
+    margin: 8px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #244C41;
+    padding: 48px 96px;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #fff;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .experience-card {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #site-hero-header {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .primary-button {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: center;
+        word-wrap: normal;
+    }
+
+    .secondary-button {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: center;
+        word-wrap: normal;
+    }
+
+    .side-image-card {
+        flex-direction: column;
+    }
+
+    .experience-card {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .footer {
+        padding: 48px 24px;
+    }
+
+    #contact-card {
+        padding: 48px 12px;
+    }
+}
