@@ -121,6 +121,10 @@ html, body {
 .cover {
   height: 500px; }
 
+.small-cover {
+  height: 275px;
+}
+
 .cover > img {
   -o-object-fit: cover;
      object-fit: cover;
