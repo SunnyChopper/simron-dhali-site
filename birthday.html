@@ -111,31 +111,50 @@
 				<!-- Events -->
 				<div style="background-color: #BD9B19;" class="shadow-1-strong my-5 p-5" id="events">
 					<div class="events-section">
-						<h2 class="h2 fw-light mt-4 mb-0 text-white">Timeline of Events</h2>
-						<p class="fw-light mb-4 text-white">Events marked with <span style="color: #2a2a2a;">*</span> are optional.</p>
+						<h2 class="h2 fw-light mt-4 mb-2 text-white">Timeline of Events</h2>
+						
+						<div class="row">
+							<div class="col-12" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
+								<div class="event-example-box optional-event-example-box">Optional Event</div>
+								<div class="event-example-box main-event-example-box">Main Event</div>
+							</div>
+						</div>
+						<p class="text-small text-white mb-1 mt-1">Color Code for Events</p>
+
 						<hr />
 						<h4 class="h4 fw-light mt-4 mb-3 text-white">March 23rd, 2022</h4>
 						<div class="accordion" id="march-23-events">
 							<div class="accordion-item">
 								<h2 class="accordion-header collapsed" id="march-23-event-1-title">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#march-23-event-1" aria-expanded="true" aria-controls="march-23-event-1">
+									<button class="accordion-button optional-event-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#march-23-event-1" aria-expanded="true" aria-controls="march-23-event-1">
 								  		1. Cidercade* (4:00pm - 7:30pm)
 									</button>
 							  	</h2>
 							  	<div id="march-23-event-1" class="accordion-collapse collapse" aria-labelledby="march-23-event-1-title" data-bs-parent="#march-23-events">
 									<div class="accordion-body">
-										<img class="event-image mt-2 mb-4" src="https://res.cloudinary.com/culturemap-com/image/upload/ar_4:3,c_fill,g_faces:center,w_980/v1561007485/photos/297650_original.jpg" />
+										<a target="_blank" href="https://www.cidercadeaustin.com/">
+											<img class="event-image mt-2 mb-4" src="https://res.cloudinary.com/culturemap-com/image/upload/ar_4:3,c_fill,g_faces:center,w_980/v1561007485/photos/297650_original.jpg" />
+										</a>
 										<h4>Cidercade (4:00pm - 7:00pm) <span class="text-small">(Optional)</span></h4>
 										<p><strong>Description:  </strong> Cidercade has a $10 All Day Game Pass for 150+ games like flight&shooters, driving, pinball, and many more! Serves $6 drinks, and $16 flights, has  has a lakeside patio. </p>
 										<p><strong>Price: </strong> $6 - $20</p>
+										<p><strong>Website: </strong> <a href="https://www.cidercadeaustin.com/">Cidercade Austin</a></p>
 										<p><strong>Address: </strong> 600 E Riverside Dr, Austin, TX, 78704</p>
-										<p><strong>Link: </strong> <a href="https://www.cidercadeaustin.com/">Cidercade Austin</a></p>
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cidercadeRsvpModal">
+											Launch demo modal
+										  </button>
+										<div class="row">
+											<div class="col-12" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
+												<a target="_blank" class="btn btn-sm btn-primary" style="display: inline-block; margin-right: 16px;" href="https://maps.google.com/?q=Cidercade+Austin">Open in Google Maps</a>
+												<a target="_blank" class="btn btn-sm btn-primary" style="display: inline-block;" href="https://maps.apple.com/?q=Cidercade+Austin">Open in Apple Maps</a>
+											</div>
+										</div>
 									</div>
 							  	</div>
 							</div>
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="march-23-event-2-title">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#march-23-event-2" aria-expanded="false" aria-controls="march-23-event-2">
+									<button class="accordion-button optional-event-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#march-23-event-2" aria-expanded="false" aria-controls="march-23-event-2">
 										2. Fogo de Chão* (8:00pm - 9:30pm)
 									</button>
 							  	</h2>
@@ -181,7 +200,7 @@
 									<div class="accordion-body">
 										<img class="event-image mt-2 mb-4" src="https://cimg1.ibsrv.net/ibimg/www.apartmentratings.com/650x350_85-1/8/9/6/8968511710776771211208268.jpg" />
 										<h4>Birthday Pregame! (9:30pm - 10:30pm)</h4>
-										<p><strong>Description:  </strong> I will be hosting a pregame at my place! Please bring any alchol as well! I will have soda, alchol, pizza, and cake! Please come, I hope you do and looking forward to it!</p>
+										<p><strong>Description:  </strong> I will be hosting a pre-game at my place! Please bring any alcohol as well! I will have soda, alcohol, pizza, and cake! Please come, I hope you do and looking forward to it!</p>
 										<p><strong>Price: </strong> $0 </p>
 										<p><strong>Address: </strong> 1127 Pearl Retreat Ln, Austin, TX 78753, APT. 2309</p>
 									</div>
@@ -212,14 +231,14 @@
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="march-25-event-4-title">
 									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#march-25-event-4" aria-expanded="true" aria-controls="march-25-event-4">
-										4. After Party (2:00am - Whenever)
+										4. After Party* (2:00am - Whenever)
 									</button>
 								</h2>
 								<div id="march-25-event-4" class="accordion-collapse collapse" aria-labelledby="march-25-event-4-title" data-bs-parent="#march-25-events">
 									<div class="accordion-body">
 										<img class="event-image mt-2 mb-4" src="https://cimg1.ibsrv.net/ibimg/www.apartmentratings.com/650x350_85-1/8/9/6/8968511710776771211208268.jpg" />
-										<h4>After Party (2:00am - Whenever)</h4>
-										<p><strong>Description:  </strong> If we aren't fucked enough we can all come back to my place and still dance and party, we will feel the vibes of this! </p>
+										<h4>After Party (2:00am - Whenever) <span class="text-small">(Optional)</span></h4>
+										<p><strong>Description:  </strong> If we aren't all fucked up enough, we can all come back to my place to dance and party, we will feel the vibes on this! </p>
 										<p><strong>Price: </strong> $0</p>
 										<p><strong>Address: </strong> 1127 Pearl Retreat Ln, Austin, TX 78753, Apt. 2309</p>
 									</div>
@@ -297,6 +316,57 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Modals -->
+		<div class="modal fade" id="cidercadeRsvpModal" tabindex="-1" role="dialog" aria-labelledby="cidercadeRsvpModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form id="cidercade-form">
+						<input type="hidden" name="venue" value="Cidercade">
+						<div class="modal-header">
+							<h5 class="modal-title" id="cidercadeRsvpModalLabel">RSVP to Cidercade</h5>
+							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-12">
+									<h6>Confirmation</h6>
+									<div class="confirmation-box">
+										<p class="mb-0"><strong>Date: </strong> March 23rd, 2022</p>
+										<p class="mb-0"><strong>Time: </strong> 4:00pm - 7:00pm</p>
+										<p class="mb-0"><strong>Price <span class="text-small">(approx.)</span>: </strong> $6 - $20</p>
+										<p class="mb-0"><strong>Location: </strong> 600 E Riverside Dr, Austin, TX, 78704</p>
+									</div>
+								</div>
+							</div>
+
+						
+							<div class="row mt-3">
+								<div class="col-12">
+									<div class="form-group">
+										<label for="name">Name</label>
+										<input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
+									</div>
+								</div>
+								<div class="col-12 mt-2">
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input type="email" name="email" class="form-control" id="email" placeholder="Enter your email">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">RSVP</button>
+						</div>
+					</form>
+			  	</div>
+			</div>
+		</div>
+
 		<footer class="pt-4 pb-4 text-muted text-center d-print-none">
 			<div class="container">
 				<div class="my-3">
@@ -319,6 +389,7 @@
 				</div>
 			</div>
 		</footer>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script src="scripts/mdb.min.js?ver=1.2.1"></script>
 		<script src="scripts/aos.js?ver=1.2.1"></script>
