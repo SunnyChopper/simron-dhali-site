@@ -193,10 +193,15 @@ footer a:not(.nav-link) {
 
 .btn-primary {
   background-color: #15ADC8;
+  transition: 0.15s all;
 }
 
 .btn-primary:hover {
+  background-color: #118ca2;
+}
 
+.btn-primary:focus {
+  background-color: #0c6473;
 }
 
 @media screen and (max-width: 480px) {

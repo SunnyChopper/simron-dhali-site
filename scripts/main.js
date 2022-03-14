@@ -5,8 +5,46 @@ AOS.init({
 });
 
 // Add your javascript here
+const RSVP_DEADLINE = new Date('2022-03-18T00:00:00');
+
+var countdownTimer = setInterval(() =>{
+  let now = new Date().getTime();
+  let distance = RSVP_DEADLINE - now;
+
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+  if (distance < 0) {
+    clearInterval(countdownTimer);
+
+    // Disable the RSVP buttons
+    $('#cidercadeRsvpButton').attr('disabled', true);
+    $('#fogoRsvpButton').attr('disabled', true);
+    $('#sipPhoRsvpButton').attr('disabled', true);
+    $('#birthdayPregameRsvpButton').attr('disabled', true);
+
+    // Show the RSVP deadline has passed
+    $('#cidercadeRsvpExpired').show();
+    $('#fogoRsvpExpired').show();
+    $('#sipPhoRsvpExpired').show();
+    $('#birthdayPregameRsvpExpired').show();
+
+    // Show the RSVP deadline has passed
+    document.getElementById('countdown').innerHTML = '0d 0h 0m 0s';
+  }
+}, 1000);
+
+/* --- Form Submission Handlers --- */
+
 $('#cidercade-form').on('submit', function (e) {
   e.preventDefault();
+
+  // Disable the RSVP button
+  $('#cidercadeRsvpSubmitButton').attr('disabled', true);
 
   var formData = new FormData(this);
 
@@ -34,10 +72,16 @@ $('#cidercade-form').on('submit', function (e) {
   } else {
     alert('Please fill out the form');
   }
+
+  // Re-enable the RSVP button
+  $('#cidercadeRsvpSubmitButton').attr('disabled', false);
 });
 
 $('#fogo-form').on('submit', function (e) {
   e.preventDefault();
+
+  // Disable the RSVP button
+  $('#fogoRsvpSubmitButton').attr('disabled', true);
 
   var formData = new FormData(this);
 
@@ -65,10 +109,16 @@ $('#fogo-form').on('submit', function (e) {
   } else {
     alert('Please fill out the form');
   }
+
+  // Re-enable the RSVP button
+  $('#fogoRsvpSubmitButton').attr('disabled', false);
 });
 
 $('#sippho-form').on('submit', function (e) {
   e.preventDefault();
+
+  // Disable the RSVP button
+  $('#sipPhoRsvpSubmitButton').attr('disabled', true);
 
   var formData = new FormData(this);
 
@@ -96,10 +146,16 @@ $('#sippho-form').on('submit', function (e) {
   } else {
     alert('Please fill out the form');
   }
+
+  // Re-enable the RSVP button
+  $('#sipPhoRsvpSubmitButton').attr('disabled', false);
 });
 
 $('#birthday-pregame-form').on('submit', function (e) {
   e.preventDefault();
+
+  // Disable the RSVP button
+  $('#birthdayPregameRsvpSubmitButton').attr('disabled', true);
 
   var formData = new FormData(this);
 
@@ -114,7 +170,7 @@ $('#birthday-pregame-form').on('submit', function (e) {
       data: $(this).serialize(),
       success: function (response) {
         if (response.result == 'success') {
-          $('#birthdayPregameModal').hide();
+          $('#birthdayPregameRsvpModal').hide();
           $('.modal-backdrop').hide();
         } else {
           alert('Something went wrong. Please try again.');
@@ -127,6 +183,9 @@ $('#birthday-pregame-form').on('submit', function (e) {
   } else {
     alert('Please fill out the form');
   }
+
+  // Re-enable the RSVP button
+  $('#birthdayPregameRsvpSubmitButton').attr('disabled', false);
 });
 
 function submitRsvp(e, formId) {
