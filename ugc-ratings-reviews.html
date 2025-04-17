@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Sunny Singh" />
+		<meta name="copyright" content="Simron Dhali" />
+		<title>Simron Dhali - UGC, Ratings & Reviews Project</title>
+		<meta name="description" content="Implementation of Bazaarvoice's UGC platform for global clients like Target and P&G, leveraging project management expertise to scale processes." />
+		<meta name="og:title" content="Simron Dhali - UGC, Ratings & Reviews Project" />
+		<meta name="og:description" content="Implementation of Bazaarvoice's UGC platform for global clients like Target and P&G, leveraging project management expertise to scale processes." />
+		<meta name="og:image" content="images/implement-ugc-ratings-and-reviews-on-websites.jpg" />
+		<meta name="og:type" content="website" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
+		</noscript>
+		<link href="css/font-awesome/css/all.min.css?ver=1.2.1" rel="stylesheet">
+		<link href="css/mdb.min.css?ver=1.2.1" rel="stylesheet">
+		<link href="css/aos.css?ver=1.2.1" rel="stylesheet">
+		<link href="css/main.css?ver=1.2.1" rel="stylesheet">
+		<!-- jQuery for Modal Support -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<noscript>
+			<style type="text/css">
+				[data-aos] {
+					opacity: 1 !important;
+					transform: translate(0) scale(1) !important;
+				}
+			</style>
+		</noscript>
+		<!-- Custom CSS for Image Hover Effect and Custom Modal -->
+		<style>
+			.image-hover {
+				cursor: pointer;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.image-hover:hover {
+				transform: scale(1.05);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+			}
+			.modal-lg {
+				max-width: 80%;
+			}
+			
+			/* Custom Simple Modal/Lightbox Styles */
+			.simpleModal {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: rgba(0,0,0,0.9);
+			}
+			
+			.simpleModal-content {
+				margin: auto;
+				display: block;
+				max-width: 80%;
+				max-height: 80%;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			
+			.simpleModal-title {
+				color: white;
+				font-size: 1.5rem;
+				padding: 10px;
+				text-align: center;
+				position: absolute;
+				top: 10px;
+				left: 0;
+				right: 0;
+				background-color: rgba(0,0,0,0.5);
+			}
+			
+			.simpleModal-close {
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				color: white;
+				font-size: 40px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+		</style>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZKE26PNTC"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-9ZKE26PNTC');
+		</script>
+	</head>
+	<body class="bg-light" id="top">
+		<header class="d-print-none">
+			<div class="container text-center text-lg-left">
+				<div class="pt-4 clearfix">
+					<h1 class="site-title mb-0">Simron Dhali</h1>
+					<div class="site-nav"> 
+						<nav role="navigation">
+							<ul class="nav justify-content-center">
+								<li class="nav-item">
+									<a class="nav-link" href="#about" title="About"><span class="menu-title">About</span></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#examples" title="Examples"><span class="menu-title">Examples</span></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#contact" title="Contact"><span class="menu-title">Contact</span></a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+    	<div class="page-content">
+			<div class="container">
+				<div class="resume-container">
+  					<div class="shadow-1-strong bg-white my-5" id="intro">
+    					<div class="bg-info text-white">
+      						<div class="small-cover bg-image">
+								<img src="images/implement-ugc-ratings-and-reviews-on-websites.jpg" style="width: 100%;" />
+        						<div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);">
+          							<div class="text-center p-5">
+            							<div class="header-bio mt-3">
+											<div data-aos="zoom-in" data-aos-delay="0">
+												<h2 class="h1">UGC, Ratings & Reviews on Websites</h2>
+												<p>Leading the implementation of User Generated Content solutions for global brands</p>
+											</div>
+											<div class="d-print-none">
+												<a class="btn btn-primary btn-lg shadow-sm mt-1 me-3" href="https://www.bazaarvoice.com/" target="_blank" data-aos="fade-right" data-aos-delay="700">Visit Bazaarvoice</a>
+												<a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3" href="index.html#portfolio" data-aos="fade-right" data-aos-delay="700">Back to Portfolio</a>
+											</div>
+										</div>
+            						</div>
+          						</div>
+        					</div>
+      					</div>
+    				</div>
+  				</div>
+  				<div class="shadow-1-strong bg-white my-5 p-5" id="about">
+    				<div class="about-section">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="h2 fw-light mb-4">About</h2>
+								<p>As a Project Manager at Bazaarvoice, I led the implementation of the company's User Generated Content (UGC) platform for major global clients. UGC is a powerful tool for e-commerce, as it provides authentic customer testimonials, reviews, and social content that significantly impacts purchasing decisions.</p>
+
+                                <p>I've worked with over 250 brands, including Air Wick, Bearpaw Shoes, Coca-Cola, Daring Foods, Dulcolax, e.l.f. Cosmetics, Fabletics, Goody Hair, Harley-Davidson, Jimmy Dean, Keurig, Kohl’s, Lay’s, Miracle-Gro, Nature's One, NYP Holdings, Party City Canada, QVC, Savage X Fenty, Shoe Carnival, Snapdragon, Tazo, Stok, True Religion, Wet n Wild, White Claw Zero, Whirlpool, 10 Chattem brands, and 22 P&G brands.</p>
+								
+								<p>The implementation process involved:</p>
+								<ul>
+									<li>Coordinating cross-functional teams to integrate Bazaarvoice's APIs and widgets into client websites</li>
+									<li>Managing client expectations and requirements throughout the implementation process</li>
+									<li>Creating scalable processes for onboarding new clients and ensuring successful platform adoption</li>
+									<li>Maintaining detailed documentation and tracking systems in JIRA, Slack, and Confluence</li>
+									<li>Troubleshooting technical issues and ensuring smooth deployment</li>
+								</ul>
+								
+								<p>Through systematic process improvements and careful project management, we were able to reduce production errors by 10%, cut operational costs by 20%, and contribute approximately $2 million in revenue growth for Bazaarvoice.</p>
+
+                                <p>You can see many of these collaborations on the homepage of their websites—scroll to the bottom to view the UGC (User-Generated Content) gallery I helped create. Clicking into the gallery will take you to the product’s page, where the UGC is tagged. On the Product Detail Page (PDP), you'll also find the PDP gallery and Ratings & Reviews section.</p>
+							</div>
+						</div>
+    				</div>
+  				</div>
+
+				<!-- Examples Section -->
+				<div class="shadow-1-strong bg-white my-5 p-5" id="examples">
+					<div class="examples-section">
+						<h2 class="h2 fw-light mb-4">Implementation Examples</h2>
+						<div class="timeline">
+							<div class="timeline-card timeline-card-info mb-2" data-aos="fade-in" data-aos-delay="0">
+								<div class="timeline-head px-4 pt-3">
+									<div class="h5">Michael Kors</div>
+								</div>
+								<div class="timeline-body px-4 pb-0">
+									<div class="row">
+										<div class="col-md-8">
+											<p>Partnered with Michael Kors on two major initiatives—first to launch UGC across their site, and later to lead a full redesign a year later. Maintained continuity with the same point of contact while onboarding a new technical team for the second phase. Introduced a Gantt chart-driven workflow to align with the client's sprint cycles and strict deadlines, ensuring a smooth rollout and on-time launch.</p>
+											<a class="btn btn-primary btn-sm mt-2 mb-3" href="https://www.michaelkors.com/" target="_blank">Visit Michael Kors</a>
+										</div>
+										<div class="col-md-4">
+											<img class="img-fluid rounded image-hover" src="images/michael-kors-ugc-example.png" alt="Product Reviews Example" data-bs-toggle="modal" data-bs-target="#imageModal1">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="timeline-card timeline-card-info mb-2" data-aos="fade-in" data-aos-delay="200">
+								<div class="timeline-head px-4 pt-3">
+									<div class="h5">Target</div>
+								</div>
+								<div class="timeline-body px-4 pb-0">
+									<div class="row">
+										<div class="col-md-8">
+											<p>Partnered with Target's internal teams to align on project goals and budget, then collaborated cross-functionally with their social media and development teams to launch a seamless integration of community content and customer reviews. Visit their site to explore the UGC gallery—select any item to see firsthand feedback and product experiences.</p>
+											<a class="btn btn-primary btn-sm mt-2 mb-3" href="https://www.target.com/finds/targetstyle" target="_blank">Visit Target</a>
+										</div>
+										<div class="col-md-4">
+											<img class="img-fluid rounded image-hover" src="images/target-ugc-example.png" alt="Social Content Example" data-bs-toggle="modal" data-bs-target="#imageModal2">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="timeline-card timeline-card-info mb-0" data-aos="fade-in" data-aos-delay="400">
+								<div class="timeline-head px-4 pt-3">
+									<div class="h5">Cortizone</div>
+								</div>
+								<div class="timeline-body px-4 pb-0">
+									<div class="row">
+										<div class="col-md-8">
+											<p>Led a multi-phase project for C-10, starting with the rollout of user-generated content and followed by a full redesign. Despite early delays caused by extended legal reviews and the challenge of aligning 22 individual brands, close collaboration across the account, technical, and QA teams helped us overcome obstacles. Thanks to this collective effort, we successfully launched ahead of all other P&G brands—setting the standard for what followed.</p>
+											<a class="btn btn-primary btn-sm mt-2 mb-3" href="https://www.cortizone10.com/en-us" target="_blank">Visit Cortizone</a>
+										</div>
+										<div class="col-md-4">
+											<img class="img-fluid rounded image-hover" src="images/cortizone-ugc-example.png" alt="Global Rollout Example" data-bs-toggle="modal" data-bs-target="#imageModal3">
+										</div>
+									</div>
+								</div>
+							</div>
+                            <div class="timeline-card timeline-card-info mb-0" data-aos="fade-in" data-aos-delay="400">
+								<div class="timeline-head px-4 pt-3">
+									<div class="h5">Kohl's</div>
+								</div>
+								<div class="timeline-body px-4 pb-0">
+									<div class="row">
+										<div class="col-md-8">
+											<p>Collaborated with the client's account team to define the scope and pricing, then partnered with their social and technical teams to successfully implement both User-Generated Content (UGC) and Ratings & Reviews. You can explore their website to view the UGC gallery—click on any product to see detailed reviews and ratings.</p>
+											<a class="btn btn-primary btn-sm mt-2 mb-3" href="https://www.kohls.com/feature/share-your-kohls-finds.jsp" target="_blank">Visit Kohl's</a>
+										</div>
+										<div class="col-md-4">
+											<img class="img-fluid rounded image-hover" src="images/kohls-ugc-example.png" alt="Kohl's Example" data-bs-toggle="modal" data-bs-target="#imageModal4">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<!-- Contact Section -->
+				<div class="shadow-1-strong bg-white my-5 p-5" id="contact">
+					<div class="contant-section">
+						<h2 class="h2 fw-light text mb-4">Contact</h2>
+						<div class="row mb-4">
+							<div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+								<div class="mt-1">
+									<div class="h6">
+										<i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> 
+										<a href="mailto:simron.dhali.singh@gmail.com">simron.dhali.singh@gmail.com</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7 d-print-none" data-aos="zoom-in" data-aos-delay="100">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220474.95160506276!2d-97.89777838532383!3d30.296307163913017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1744845583294!5m2!1sen!2sus" width="500" height="400" style="border:0;width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="pt-4 pb-4 text-muted text-center d-print-none">
+			<div class="container">
+				<div class="my-3">
+				<div class="h4">Simron Dhali</div>
+				<div class="footer-nav">
+					<nav role="navigation">
+					<ul class="nav justify-content-center">
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.linkedin.com/in/simron-dhali/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
+						</li>
+					</ul>
+					</nav>
+				</div>
+				</div>
+				<div class="text-small">
+				<div class="mb-1">&copy; Material Resume. All rights reserved.</div>
+				<div>Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a></div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Image Modals -->
+		<div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="imageModalLabel1">Michael Kors UGC Integration</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+						<img src="images/michael-kors-ugc-example.png" class="img-fluid" alt="Michael Kors UGC Integration">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="imageModalLabel2">Target Social Content Curation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+						<img src="images/target-ugc-example.png" class="img-fluid" alt="Target Social Content Curation">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="imageModalLabel3">P&G Global UGC Rollout</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+						<img src="images/cortizone-ugc-example.png" class="img-fluid" alt="P&G Global UGC Rollout">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="scripts/mdb.min.js?ver=1.2.1"></script>
+		<script src="scripts/aos.js?ver=1.2.1"></script>
+		<script src="scripts/main.js?ver=1.2.1"></script>
+		
+		<!-- Custom JavaScript for Modal Functionality -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// Initialize modals manually
+				var modalTriggers = document.querySelectorAll('[data-bs-toggle="modal"]');
+				
+				// Make images clickable as fallback
+				modalTriggers.forEach(function(trigger) {
+					trigger.addEventListener('click', function(event) {
+						// If the modal doesn't open, show image in new tab as fallback
+						var targetId = this.getAttribute('data-bs-target');
+						
+						// Open the image in a new window if clicking doesn't trigger modal
+						setTimeout(function() {
+							if (document.querySelector(targetId + '.show') === null) {
+								window.open(trigger.getAttribute('src'), '_blank');
+							}
+						}, 500);
+					});
+				});
+			});
+		</script>
+  	</body>
+</html> 
