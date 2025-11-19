@@ -174,6 +174,31 @@ html, body {
      object-fit: cover;
   width: auto; }
 
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.cover-mask {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.contact-map {
+  border: 0;
+  width: 100%;
+}
+
+.portfolio-image-static {
+  opacity: 0.85;
+  cursor: default;
+}
+
+.portfolio-item-static {
+  opacity: 0.9;
+  cursor: default;
+}
+
 .progress-bar {
   text-transform: uppercase;
   font-size: 10px;
