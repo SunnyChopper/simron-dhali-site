@@ -251,6 +251,10 @@ footer a:not(.nav-link) {
   .site-nav {
     float: right; } }
 
+.contact-icon {
+  width: 24px;
+  opacity: 0.85; }
+
 @media (max-width: 767px) {
   /* disable animations on mobile */
   [data-aos] {
