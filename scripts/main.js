@@ -17,6 +17,141 @@ AOS.init({
   });
 })();
 
+(function () {
+  var key = window.SIMRON_DHALI_GA_STORAGE_KEY || 'simrondhali_ga_consent_v1';
+  var GEO_SESSION = 'simrondhali_geo_eea';
+  var EEA_REGIONS = new Set([
+    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE',
+    'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE',
+    'IS', 'LI', 'NO', 'GB', 'CH'
+  ]);
+
+  var banner = document.getElementById('cookie-consent-banner');
+  if (!banner) return;
+  var accept = document.getElementById('cookie-consent-accept');
+  var reject = document.getElementById('cookie-consent-reject');
+  if (!accept || !reject) return;
+
+  function hideBanner() {
+    banner.hidden = true;
+  }
+
+  function isEeaCountry(code) {
+    return EEA_REGIONS.has(String(code || '').trim().toUpperCase());
+  }
+
+  function shouldSkipGeoLookup() {
+    if (window.location.protocol === 'file:') return true;
+    var h = window.location.hostname;
+    if (!h || h === 'localhost' || h === '127.0.0.1') return true;
+    return false;
+  }
+
+  function fetchCountryCode() {
+    return fetch('https://get.geojs.io/v1/country.json', { credentials: 'omit' })
+      .then(function (r) {
+        return r.ok ? r.json() : Promise.reject();
+      })
+      .then(function (data) {
+        var code = (data && (data.country_code || data.country)) || '';
+        return code ? String(code) : Promise.reject();
+      })
+      .catch(function () {
+        return fetch('https://ipwho.is/json/', { credentials: 'omit' })
+          .then(function (r) {
+            return r.ok ? r.json() : Promise.reject();
+          })
+          .then(function (data) {
+            if (!data || !data.success || !data.country_code) return Promise.reject();
+            return String(data.country_code);
+          });
+      });
+  }
+
+  function detectEea(callback) {
+    try {
+      var cached = sessionStorage.getItem(GEO_SESSION);
+      if (cached === '1') {
+        callback(true);
+        return;
+      }
+      if (cached === '0') {
+        callback(false);
+        return;
+      }
+    } catch (e) {}
+
+    if (shouldSkipGeoLookup()) {
+      callback(false);
+      return;
+    }
+
+    fetchCountryCode()
+      .then(function (code) {
+        var eea = isEeaCountry(code);
+        try {
+          sessionStorage.setItem(GEO_SESSION, eea ? '1' : '0');
+        } catch (e) {}
+        callback(eea);
+      })
+      .catch(function () {
+        callback(false);
+      });
+  }
+
+  try {
+    if (localStorage.getItem(key)) {
+      hideBanner();
+      return;
+    }
+  } catch (e) {}
+
+  accept.addEventListener('click', function () {
+    try {
+      localStorage.setItem(key, 'granted');
+    } catch (e) {}
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      window.gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    }
+    hideBanner();
+  });
+
+  reject.addEventListener('click', function () {
+    try {
+      localStorage.setItem(key, 'denied');
+    } catch (e) {}
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    }
+    hideBanner();
+  });
+
+  detectEea(function (eea) {
+    if (!eea) {
+      hideBanner();
+      return;
+    }
+    try {
+      if (localStorage.getItem(key)) return;
+    } catch (e) {}
+    banner.hidden = false;
+  });
+})();
+
 // Birthday RSVP page (birthday.html loads jQuery before this file)
 if (typeof jQuery !== 'undefined') {
   const RSVP_DEADLINE = new Date('2022-03-18T00:00:00');

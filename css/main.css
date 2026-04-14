@@ -353,3 +353,37 @@ footer a:not(.nav-link) {
   .page-break {
     padding-top: 5rem;
     page-break-before: always; } }
+
+.cookie-consent-banner {
+  position: fixed;
+  z-index: 1100;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -4px 24px rgba(20, 20, 20, 0.12);
+  border-top: 1px solid #e6e9ed;
+}
+
+.cookie-consent-inner {
+  max-width: 58rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.cookie-consent-text {
+  flex: 1 1 20rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
