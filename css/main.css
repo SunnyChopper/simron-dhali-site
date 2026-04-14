@@ -163,6 +163,8 @@ html, body {
   margin-left: 1rem; }
 
 .cover {
+  position: relative;
+  overflow: hidden;
   height: 500px; }
 
 .small-cover {
@@ -170,16 +172,21 @@ html, body {
 }
 
 .cover > img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: auto; }
-
-.cover-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .cover-mask {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(2px);
 }
@@ -255,7 +262,44 @@ footer a:not(.nav-link) {
   width: 24px;
   opacity: 0.85; }
 
+.about-bio-toggle .about-bio-chevron {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.about-bio-toggle[aria-expanded="true"] .about-bio-chevron {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .about-bio-body {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .about-bio-body::after {
+    display: none !important;
+  }
+}
+
 @media (max-width: 767px) {
+  .about-bio-body:not(.about-bio-expanded) {
+    max-height: 11rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .about-bio-body:not(.about-bio-expanded)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.88) 50%, #fff);
+    pointer-events: none;
+  }
+
   /* disable animations on mobile */
   [data-aos] {
     opacity: 1 !important;
@@ -292,6 +336,13 @@ footer a:not(.nav-link) {
     padding: 1.5rem 0 !important; }
   .about-section {
     padding: 0 !important; }
+  .about-bio-body {
+    max-height: none !important;
+    overflow: visible !important; }
+  .about-bio-body::after {
+    display: none !important; }
+  .about-bio-toggle {
+    display: none !important; }
   .skills-section,
   .work-experience-section,
   .education-section,
