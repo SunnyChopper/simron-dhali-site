@@ -21,7 +21,7 @@
 		<link href="css/font-awesome/css/all.min.css?ver=1.2.1" rel="stylesheet">
 		<link href="css/mdb.min.css?ver=1.2.1" rel="stylesheet">
 		<link href="css/aos.css?ver=1.2.1" rel="stylesheet">
-		<link href="css/main.css?ver=1.2.1" rel="stylesheet">
+		<link href="css/main.css?ver=1.2.2" rel="stylesheet">
 		<!-- jQuery for Modal Support -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<noscript>
@@ -91,17 +91,21 @@
 				cursor: pointer;
 			}
 		</style>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<!-- Global site tag (gtag.js) - Google Analytics + Consent Mode -->
+		<script src="scripts/analytics-bootstrap.js?ver=1.2.1"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZKE26PNTC"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-9ZKE26PNTC');
-		</script>
+		<script src="scripts/analytics-config.js?ver=1.2.1"></script>
 	</head>
 	<body class="bg-light" id="top">
+		<div id="cookie-consent-banner" class="cookie-consent-banner d-print-none" role="dialog" aria-modal="true" aria-label="Analytics cookies" hidden>
+			<div class="cookie-consent-inner">
+				<p class="cookie-consent-text mb-0">This site uses Google Analytics to understand traffic. You can accept analytics storage or decline; your choice is remembered on this device.</p>
+				<div class="cookie-consent-actions">
+					<button type="button" class="btn btn-info btn-sm" id="cookie-consent-accept">Accept</button>
+					<button type="button" class="btn btn-outline-secondary btn-sm" id="cookie-consent-reject">Decline</button>
+				</div>
+			</div>
+		</div>
 		<header class="d-print-none">
 			<div class="container text-center text-lg-left">
 				<div class="pt-4 clearfix">
